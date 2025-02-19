@@ -7,7 +7,6 @@ contract ColorBottleGame {
     bool public gameOver = false;
 
     constructor() {
-        // Initial sequence setup
         currentSequence = [uint256(1), 2, 3, 4, 5];
         shuffleSequence();
     }

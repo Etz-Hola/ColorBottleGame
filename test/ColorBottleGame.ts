@@ -45,19 +45,17 @@ describe("ColorBottleGame", function () {
             const newAttempts = await colorBottleGame.getAttemptsLeft();
 
             expect(newAttempts.toNumber()).to.equal(initialAttempts.toNumber() - 1);
-            expect(result).to.be.within(0, 5); // Correct matches can be 0 to 5
+            expect(result).to.be.within(0, 5); 
         });
 
         it("should end the game when all bottles are correctly arranged", async function () {
-            // Simulate all correct guesses (this might not work if initial sequence is shuffled)
-            const result = await colorBottleGame.connect(player).play([5, 4, 3, 2, 1]); // Assume reverse sequence is correct
+            const result = await colorBottleGame.connect(player).play([5, 4, 3, 2, 1]); 
             if (result == 5) {
                 expect(await colorBottleGame.gameOver()).to.be.true;
             }
         });
 
         it("should not allow playing after winning", async function () {
-            // Force gameOver to true for this test
             for (let i = 0; i < 5; i++) {
                 await colorBottleGame.connect(player).play([1, 2, 3, 4, 5]);
             }
@@ -83,7 +81,6 @@ describe("ColorBottleGame", function () {
 
     describe("startNewGame function", function () {
         it("should reset game state", async function () {
-            // Play until game over or attempts exhausted
             for (let i = 0; i < 5; i++) {
                 await colorBottleGame.connect(player).play([1, 2, 3, 4, 5]);
             }
