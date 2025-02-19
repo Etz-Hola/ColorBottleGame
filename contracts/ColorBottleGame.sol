@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract ColorBottleGame {
-    
+
     uint256[] private currentSequence;
     uint256 public attemptsLeft = 5;
     bool public gameOver = false;
@@ -24,6 +24,7 @@ contract ColorBottleGame {
     function play(uint256[5] memory _attempt) public returns (uint256) {
         require(!gameOver, "Game is over, start a new game.");
         require(attemptsLeft > 0, "No attempts left. Game Over.");
+
         
         uint256 correctCount = 0;
         for (uint256 i = 0; i < 5; i++) {
@@ -31,6 +32,7 @@ contract ColorBottleGame {
                 correctCount++;
             }
         }
+        
 
         attemptsLeft--;
 
