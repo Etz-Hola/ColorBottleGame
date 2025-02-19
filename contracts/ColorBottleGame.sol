@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract ColorBottleGame {
+    
     uint256[] private currentSequence;
     uint256 public attemptsLeft = 5;
     bool public gameOver = false;
